@@ -7,14 +7,21 @@ function onFormSubmit(event) {
 
   const formData = new FormData(event.currentTarget);
 
-  if (!formData.get("email") || !formData.get("password")) {
+  const emailInput = form.elements.email;
+  const passwordInput = form.elements.password;
+
+  if (!emailInput.value || !passwordInput.value) {
     alert("All fields must be filled out");
     return;
   }
 
+  const formDataObject = {};
+
   formData.forEach((value, name) => {
-    console.log(name, value);
+    formDataObject[name] = value;
   });
+
+  console.log(formDataObject);
 
   form.reset();
 }

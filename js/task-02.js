@@ -7,13 +7,13 @@ const ingredients = [
   "Condiments",
 ];
 
-const ul = document.createElement("ul");
-ul.id = "ingredients";
+const ul = document.getElementById("ingredients");
 
-ingredients.forEach((ingredient) => {
+const list = ingredients.map((ingredient) => {
   const li = document.createElement("li");
   li.textContent = ingredient;
-  ul.append(li);
+  li.classList.add("item");
+  return li;
 });
 
-console.log(ul);
+ul.append(...list);

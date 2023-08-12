@@ -14,16 +14,16 @@ const images = [
 ];
 
 const ul = document.querySelector(".gallery");
-images.forEach((image) => {
-  const li = `<li>
-  <img src="${image.url}" 
-  alt="${image.alt}"
-  width=500>
-  </li>`;
-  ul.insertAdjacentHTML("beforeend", li);
-});
+const list = images.map((image) => {
+  return `<li>
+    <img src="${image.url}" 
+    alt="${image.alt}"
+    width=500>
+    </li>`;
+}).join("");
 
-console.log(ul);
 ul.style.display = "flex";
 ul.style.flexDirection = "column";
 ul.style.alignItems = "center";
+
+ul.insertAdjacentHTML("beforeend", list);
